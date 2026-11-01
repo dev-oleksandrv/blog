@@ -57,7 +57,8 @@ password reset; Better Auth, newer and not the owner's choice.
 
 ### Confirmation
 
-`package.json` and its lock file name Next.js, TypeScript, and the tools above, and
-`scripts/check.sh` runs the formatter check, the linter, the type checker, and the unit tests.
-Not checked yet: the storage and sign-in packages arrive with the first change that implements
-REQ-001 to REQ-004 and REQ-003; the review of that change confirms them.
+Not checked yet: the scaffold change adds `package.json` and its lock file with Next.js,
+TypeScript, and the tools above, and project checks in `scripts/checks.d/` for the formatter,
+the linter, the type checker, and the unit tests; its review confirms the language, framework,
+and tools. The storage packages arrive with the first change that implements REQ-001, REQ-002,
+or REQ-004, and the sign-in packages with REQ-003; the review of each confirms its part.

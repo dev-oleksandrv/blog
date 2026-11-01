@@ -6,9 +6,8 @@ are requirements, not a claim that anything is built; the stack that implements 
 [ADR-0001](../decisions/0001-typescript-nextjs-neon-postgres-stack.md), and the components are in
 the [system map](../architecture/system-map.md).
 
-Each acceptance criterion names the check that will establish it. Unit tests run with Vitest
-under `scripts/checks.d/30-test.sh` once that check exists; end-to-end tests with Playwright are
-added when the project leaves the starting stage.
+Each acceptance criterion names the check that will establish it: a unit test, run by a
+proposed test check in `scripts/checks.d/` with the tools of ADR-0001.
 
 ## REQ-001: Readers see the list of published posts
 
