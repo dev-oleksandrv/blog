@@ -1,0 +1,14 @@
+# Prettier formats the app's code only. Markdown, the template's files, and generated files
+# are checked by their own tools (scripts/check.sh).
+*.md
+docs/
+scripts/
+.claude/
+.github/
+.template/
+.afe-answers.json
+.markdownlint-cli2.jsonc
+pnpm-lock.yaml
+.next/
+next-env.d.ts
+public/

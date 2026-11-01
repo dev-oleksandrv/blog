@@ -59,3 +59,8 @@ gate vitest.config.*
 gate tsconfig*.json
 gate stryker.conf.*
 gate .golangci.yml
+
+# The app's formatter and package manager settings (ADR-0001).
+gate prettier.config.*
+gate .prettierignore
+gate pnpm-workspace.yaml
