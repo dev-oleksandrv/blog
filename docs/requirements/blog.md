@@ -148,3 +148,5 @@ Acceptance criteria:
   list (REQ-005). Not decided.
 - OQ-7: Which other fields a post page shows, such as the publication date and the tags
   (REQ-002). Not decided.
+- OQ-8: The order of posts published at the same instant, on the index, tag pages, and the feed
+  (REQ-001, REQ-005, REQ-006). Not decided.
