@@ -4,7 +4,10 @@ Instructions for AI coding agents in this repository; people start at `README.md
 comes from the project template: change it in the template, except the project block below.
 
 <!-- project:start -->
-The project is **acme** (`dev-oleksandrv/blog`). Blog project.
+The project is **acme** (`dev-oleksandrv/blog`): a personal blog with one author, an admin UI,
+and public readers. Requirements: `docs/requirements/blog.md`. Stack (ADR-0001): TypeScript,
+Next.js, Node.js 24, pnpm, Postgres on Neon with Drizzle (PGlite locally), Auth.js with GitHub,
+Vercel. Tools: Vitest, ESLint, Prettier, `tsc`. Stage: starting. Commands: `scripts/env.sh`.
 <!-- project:end -->
 
 ## 1. Sources of truth and precedence

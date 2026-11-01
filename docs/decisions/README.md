@@ -5,4 +5,6 @@ by hand. Read this index first and open a record only when the task needs it. Wh
 a record, and where the other owner decisions live:
 [`documentation-rules.md`](../documentation-rules.md), sections 3 and 5.
 
-No records yet.
+| ADR | Status | Scope | Decision | Summary | Supersedes |
+| --- | --- | --- | --- | --- | --- |
+| [0001](0001-typescript-nextjs-neon-postgres-stack.md) | accepted | stack | TypeScript, Next.js, Postgres on Neon with Drizzle, and Auth.js with GitHub | In the context of a personal blog with one author, an admin UI, and hosting on Vercel, facing the choice of language, framework, storage, and sign-in, we decided TypeScript with Next.js, Postgres on Neon through Drizzle ORM, and Auth.js with GitHub OAuth for one allowed account, and rejected SvelteKit, Astro, Prisma, SQLite on Turso, password sign-in, and Better Auth, to achieve one typed codebase native to Vercel without stored passwords, accepting a dependency on Neon and GitHub and the size of Next.js. | – |

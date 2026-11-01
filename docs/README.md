@@ -14,6 +14,8 @@ One fact has one owner document; every other document links to it instead of rep
 | Documentation statuses, lifecycle, path classes and access, ownership of files, alignment, review checklist | [`documentation-rules.md`](documentation-rules.md) | exists |
 | Branches, commit messages, pull requests, template updates, review of pull requests | [`contributing.md`](contributing.md); applied in Claude Code by the skills `.claude/skills/create-pr/` and `.claude/skills/update-template/`, in CI by `.claude/skills/review-code/` | exists |
 | What a test is for and must prove, gates on tests | [`testing-rules.md`](testing-rules.md) | exists |
+| Requirements: what the system must do, with acceptance criteria and open questions | [`requirements/blog.md`](requirements/blog.md), one `REQ-NNN` per statement | exists |
+| Architecture: the system map, components, domain ownership, boundaries and dependency rules, runtime | [`architecture/system-map.md`](architecture/system-map.md) | exists, `draft` |
 | Why a costly-to-reverse decision was made, and its status | [`decisions/README.md`](decisions/README.md), the generated index of short ADRs; other owner decisions are marked in their owner documents ([`documentation-rules.md`](documentation-rules.md), sections 3 and 5) | exists; the index lists the records |
 | Checks and enforcement | `scripts/check.sh` and the scripts it runs; Claude Code hooks and permissions `.claude/settings.json`, generated from `.claude/settings.project.json`, and `.claude/hooks/`; path classes `.claude/path-classes`; harness settings `.claude/harness.conf`; workflows `.github/workflows/`; metrics of merged pull requests `scripts/pr-metrics.sh` ([`documentation-rules.md`](documentation-rules.md), sections 7, 8, and 9) | exists |
 
@@ -26,9 +28,7 @@ placeholder files.
 
 | Kind of fact | Planned owner | Created when |
 | --- | --- | --- |
-| Requirements: what the system must do | `docs/requirements/`, one `REQ-NNN` per statement | the owner states the first requirement |
 | Invariants: what must hold everywhere, each with the check that enforces it | `docs/invariants.md`, one `INV-NN` per invariant | the owner names the first invariant |
-| Architecture: the system map, components, domain ownership, boundaries and dependency rules, runtime | `docs/architecture/` | the first design is proposed |
 | Contracts: APIs, schemas, events | `contracts/` at the repository root, machine-readable and authoritative | the first interface is designed |
 | Active plans | `docs/plans/` | work spans more than one session |
 | Operations: run, deploy, observe (logs, traces, metrics, scenario replay), recover | `docs/operations/` | there is something to operate |
