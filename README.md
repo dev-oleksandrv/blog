@@ -1,0 +1,41 @@
+# acme
+
+Blog project. Repository: `dev-oleksandrv/blog`.
+
+Every statement in this repository carries a status (requirement, proposed, accepted,
+implemented). What exists and what is only planned is listed in the
+[documentation map](docs/README.md).
+
+## Start here
+
+- People: this file, then the [documentation map](docs/README.md).
+- AI agents: [AGENTS.md](AGENTS.md). `CLAUDE.md` imports it for Claude Code.
+- Setting up the code: run `/afe-init` in Claude Code. It asks the owner what to build and with
+  which stack, records the answers, scaffolds the code, and wires the checks into this template.
+
+## Checks
+
+```bash
+scripts/check.sh
+```
+
+Requires Git, bash, and Node.js 20 or later; nothing else to install. External links are not
+checked; a project that wants it adds a check such as [lychee](https://lychee.cli.rs/) in
+`scripts/checks.d/` (`docs/documentation-rules.md`, section 9).
+
+## Protected main branch
+
+Changes reach `main` only through pull requests with passing checks. After the first push, a
+repository admin applies the GitHub ruleset once (`--dry-run` shows it first):
+
+```bash
+scripts/protect-branch.sh
+```
+
+## Project template
+
+This repository is generated from
+[`create-afe-project`](https://github.com/dev-oleksandrv/create-afe-project); `.afe-answers.json` records the
+template version. The template owns the files listed in `.template/owned.sha256`; change them
+in the template and update this repository with `npx create-afe-project@latest update`
+(`docs/contributing.md`, section 5).
