@@ -10,7 +10,8 @@ One fact has one owner document; every other document links to it instead of rep
 | --- | --- | --- |
 | Product name and purpose | [`README.md`](../README.md) | exists |
 | Agent rules: precedence, autonomy by risk, when a change is done, required checks | [`AGENTS.md`](../AGENTS.md) | exists |
-| Environment commands: set up, check, fast check, end-to-end tests, reset, the check after every edit | `scripts/env.sh` with `setup`, `check`, `fast`, `e2e`, or `reset`, which runs the commands of `.claude/harness.conf`: check is `scripts/check.sh`, fast check `scripts/check-docs.sh` until the project sets its own; setup, end-to-end tests, reset: not decided until the project sets them. `CHECK_EDIT` runs after every edit through `.claude/hooks/post-edit-check.sh`; not decided until the project sets it. The `afe-init` skill sets them up with the owner | check and fast check exist |
+| Environment commands: set up, check, fast check, end-to-end tests, reset, the check after every edit | `scripts/env.sh` with `setup`, `check`, `fast`, `e2e`, or `reset`, which runs the commands of `.claude/harness.conf`: check is `scripts/check.sh`, with the project checks `scripts/checks.d/20-lint.sh` (format, lint, types) and `scripts/checks.d/30-test.sh` (unit tests); setup `scripts/checks.d/lib/install.sh`, which installs the dependencies from the lock file; fast check `scripts/checks.d/lib/fast.sh`; reset removes `.next` and `node_modules` and installs again. End-to-end tests and `CHECK_EDIT`, which runs after every edit through `.claude/hooks/post-edit-check.sh`: not set at the starting stage | check, fast check, setup, and reset exist |
+| Implemented behaviour | source code in `src/` and its tests, `src/**/*.test.ts` and `src/**/*.test.tsx` (`vitest.config.ts`) | exists |
 | Documentation statuses, lifecycle, path classes and access, ownership of files, alignment, review checklist | [`documentation-rules.md`](documentation-rules.md) | exists |
 | Branches, commit messages, pull requests, template updates, review of pull requests | [`contributing.md`](contributing.md); applied in Claude Code by the skills `.claude/skills/create-pr/` and `.claude/skills/update-template/`, in CI by `.claude/skills/review-code/` | exists |
 | What a test is for and must prove, gates on tests | [`testing-rules.md`](testing-rules.md) | exists |
@@ -34,7 +35,6 @@ placeholder files.
 | Operations: run, deploy, observe (logs, traces, metrics, scenario replay), recover | `docs/operations/` | there is something to operate |
 | Conventions: naming, structure, and style rules that the code does not show, with the check that enforces each | `docs/conventions/`, one file per area | the first convention is agreed |
 | Recipes: step-by-step procedures for repeated work, such as adding a module or an endpoint | `docs/recipes/`, one file per task; a skill points to its recipe instead of copying it | a task is done the same way a second time |
-| Implemented behaviour | source code and its tests | the first code is merged |
 | Review criteria: what the project adds to the rubric of [`contributing.md`](contributing.md), section 6 | not decided: the owner document the project chooses | the project adds its first criterion |
 
 ## Reading order for a new agent
