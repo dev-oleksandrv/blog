@@ -2,6 +2,7 @@
   "permissions": {
     "deny": [
       "Read(**/.env)",
+      "Read(**/.env.*)",
       "Read(**/*.pem)",
       "Read(**/*.key)",
       "Bash(git push --force*)",
@@ -18,14 +19,7 @@
       "Bash(git push * -d *)",
       "Bash(git push --mirror*)",
       "Bash(git push * --mirror*)",
-      "Bash(git push * +*)",
-      "Read(**/.env.local)",
-      "Read(**/.env.development)",
-      "Read(**/.env.development.local)",
-      "Read(**/.env.production)",
-      "Read(**/.env.production.local)",
-      "Read(**/.env.test)",
-      "Read(**/.env.test.local)"
+      "Bash(git push * +*)"
     ]
   },
   "hooks": {
