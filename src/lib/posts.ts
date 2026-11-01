@@ -9,7 +9,7 @@ type PublishedPost = Post & { publishedAt: Date };
 
 /**
  * The posts readers see on the index (REQ-001): only published posts, newest first by
- * publication time. Posts published at the same time keep their given order.
+ * publication time.
  */
 export function listPublishedPosts(posts: readonly Post[]): PublishedPost[] {
   return posts

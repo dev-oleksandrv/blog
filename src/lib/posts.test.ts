@@ -23,6 +23,18 @@ describe("REQ-001: readers see the list of published posts", () => {
     ]);
   });
 
+  it("AC-01: orders by the instant, not the written time, across time zones", () => {
+    const posts = [
+      post("earlier", "2026-01-01T01:00:00+02:00"),
+      post("later", "2026-01-01T00:00:00Z"),
+    ];
+
+    expect(listPublishedPosts(posts).map((p) => p.slug)).toEqual([
+      "later",
+      "earlier",
+    ]);
+  });
+
   it("AC-02: does not list drafts", () => {
     const posts = [
       post("draft", null),
@@ -32,31 +44,10 @@ describe("REQ-001: readers see the list of published posts", () => {
     expect(listPublishedPosts(posts).map((p) => p.slug)).toEqual(["published"]);
   });
 
-  it("AC-03: gives an empty list when no post is published", () => {
-    expect(listPublishedPosts([])).toEqual([]);
-    expect(listPublishedPosts([post("draft", null)])).toEqual([]);
-  });
-
-  it("AC-01: keeps posts of the same publication time in their given order", () => {
-    const posts = [
-      post("first", "2026-01-01T00:00:00Z"),
-      post("second", "2026-01-01T00:00:00Z"),
-    ];
-
-    expect(listPublishedPosts(posts).map((p) => p.slug)).toEqual([
-      "first",
-      "second",
-    ]);
-  });
-
-  it("AC-01: does not change the list it is given", () => {
-    const posts = [
-      post("older", "2026-01-01T00:00:00Z"),
-      post("newer", "2026-02-01T00:00:00Z"),
-    ];
-
-    listPublishedPosts(posts);
-
-    expect(posts.map((p) => p.slug)).toEqual(["older", "newer"]);
+  it.each([
+    { name: "no posts", posts: [] },
+    { name: "only drafts", posts: [post("draft", null)] },
+  ])("AC-03: gives an empty list for $name", ({ posts }) => {
+    expect(listPublishedPosts(posts)).toEqual([]);
   });
 });

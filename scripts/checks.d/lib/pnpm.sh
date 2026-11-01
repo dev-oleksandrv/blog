@@ -7,7 +7,7 @@ pnpm() {
     command pnpm "$@"
   else
     local version
-    version=$(node -p 'require("./package.json").packageManager.split("@")[1]')
+    version=$(node -p 'require("./package.json").packageManager.split("@")[1].split("+")[0]')
     npx --yes "pnpm@$version" "$@"
   fi
 }
